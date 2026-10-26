@@ -1,0 +1,5 @@
+meilleurscoresolo=442
+totalGames=13
+player1Wins=4
+player2Wins=9
+totalTime=152.82

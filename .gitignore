@@ -1,0 +1,12 @@
+*.exe
+*.out
+/.vscode
+assets/.DS_Store
+.DS_Store
+Makefile_windows
+Makefile.windows
+Makefile_mac
+Makefile_kevin
+**/.DS_Store
+CMakeLists.txt
+/.idea

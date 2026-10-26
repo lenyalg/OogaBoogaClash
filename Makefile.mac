@@ -1,0 +1,29 @@
+CC = clang
+RAYLIB_INC = /opt/homebrew/include/
+RAYLIB_LIB = /opt/homebrew/lib
+
+# Project include dir (for common.h, sprite_manager.h, etc.)
+INCLUDE_DIR = include
+
+CFLAGS = -I$(INCLUDE_DIR) -Isrc -Isrc/graphics/menu -Isrc/graphics/gamegraphics \
+         -Isrc/gameplay -Isrc/utils -I$(RAYLIB_INC) -Wall -Wextra -O2 -Isrc/graphics/hud \
+         -Wno-deprecated-non-prototype
+
+LDFLAGS = -L$(RAYLIB_LIB) -lraylib -lm -framework OpenGL -framework Cocoa -framework IOKit -framework CoreAudio -framework CoreVideo -framework AudioToolbox
+
+SRCS := $(shell find src -name '*.c' | sort)
+
+TARGET = mon_jeu.out
+
+.PHONY: all clean run
+
+all: $(TARGET)
+
+$(TARGET): $(SRCS)
+	$(CC) $(SRCS) $(CFLAGS) $(LDFLAGS) -o $(TARGET)
+
+clean:
+	rm -f $(TARGET)
+
+run: $(TARGET)
+	./$(TARGET)
